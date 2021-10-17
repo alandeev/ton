@@ -1,2 +1,2 @@
-# ton
-Repo para o desafio técnico do Ton
+# ton-backend
+Repo para o desafio técnico da TON
