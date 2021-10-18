@@ -1,5 +1,5 @@
 import { Controller } from '@/presentation/protocols'
-import { FindPermissionGroupByPageController } from '@/presentation/controllers/permission-group/find-permission-group-by-page/find-permission-group-by-page-controller'
+import { FindPermissionGroupByPageController } from '@/presentation/controllers/permission-group/find-permission-group-by-page-controller'
 import { makeDbFindPermissionGroupByPage } from '../../usecases/permission-group/db-find-permission-group-by-page-factory'
 import { ErroHandlerFactory } from '../../erro/error-handler-factory'
 

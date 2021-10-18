@@ -1,4 +1,4 @@
-import { UpdatePermissionGroupController } from '@/presentation/controllers/permission-group/update-permission-group/update-permission-group-controller'
+import { UpdatePermissionGroupController } from '@/presentation/controllers/permission-group/update-permission-group-controller'
 import { Controller } from '@/presentation/protocols'
 import { makeUpdatePermissionGroupValidation } from './permission-group-validation/update-permission-group-validation-factory'
 import { makeDbUpdatePermissionGroup } from '@/main/factories/usecases/permission-group/db-update-permission-group-factory'

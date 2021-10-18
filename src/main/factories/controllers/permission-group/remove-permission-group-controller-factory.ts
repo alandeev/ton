@@ -1,4 +1,4 @@
-import { RemovePermissionGroupController } from '@/presentation/controllers/permission-group/remove-permission-group/remove-permission-group-controller'
+import { RemovePermissionGroupController } from '@/presentation/controllers/permission-group/remove-permission-group-controller'
 import { Controller } from '@/presentation/protocols'
 import { makeRemovePermissionGroupValidation } from './permission-group-validation/remove-permission-group-validation-factory'
 import { makeDbRemovePermissionGroup } from '@/main/factories/usecases/permission-group/db-remove-permission-group-factory'
