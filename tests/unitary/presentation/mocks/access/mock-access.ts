@@ -3,8 +3,8 @@ import { IncrementAmountAccess } from '@/domain/usescasses/access/increment-amou
 
 export const makeDbFindAmountAccess = (): FindAmountAccess => {
   class FindAmountAccessStub implements FindAmountAccess {
-    async findAmount (): Promise<string> {
-      return await new Promise(resolve => resolve('1'))
+    async findAmount (): Promise<number> {
+      return await new Promise(resolve => resolve(1))
     }
   }
   return new FindAmountAccessStub()
@@ -12,8 +12,8 @@ export const makeDbFindAmountAccess = (): FindAmountAccess => {
 
 export const makeDbIncrementAmountAccess = (): IncrementAmountAccess => {
   class IncrementAmountAccessStub implements IncrementAmountAccess {
-    async incrementAmount (): Promise<string> {
-      return await new Promise(resolve => resolve('1'))
+    async incrementAmount (): Promise<number> {
+      return await new Promise(resolve => resolve(1))
     }
   }
   return new IncrementAmountAccessStub()
