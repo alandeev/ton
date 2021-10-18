@@ -1,3 +1,3 @@
 export interface IncrementAmountAccess {
-  incrementAmount: () => Promise<number>
+  incrementAmount: () => Promise<string>
 }
