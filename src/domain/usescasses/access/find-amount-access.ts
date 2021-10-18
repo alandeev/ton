@@ -1,3 +1,3 @@
 export interface FindAmountAccess {
-  findAmount: () => Promise<string>
+  findAmount: () => Promise<number>
 }
