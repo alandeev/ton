@@ -1,0 +1,235 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API TON",
+    "description": "Essa API tem como objetivo a manipulação dos dados do sistema de visão de acessos do site do TON. Lembrando que o login deve ser feito antes para ser feito o teste pelo Swagger. Para logar pode ser usando Postaman, Insomnia ou qualquer outra ferramenta que teste api rest, depois do login feito é só colocar o token para testar as rotas",
+    "contact": {
+      "email": "gustavonoronha0@hotmail.com.br"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001",
+      "description": "Base Url API"
+    }
+  ],
+  "paths": {
+    "/account": {
+      "post": {
+        "summary": "Account",
+        "description": "Essa rota é responsavel pelas contas do sistema.",
+        "tags": ["Account"],
+        "requestBody": {
+          "content": {
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              },
+              "examples": {
+                "company": {
+                  "value": {
+                    "name": "Gustavo Noronha",
+                    "documenty": "11111827958",
+                    "email": "gustavo.noronha@ton.com.br",
+                    "password": "@ton123456",
+                    "passwordConfirmation": "@ton123456",
+                    "phone": "4891803578",
+                    "about": "Desenvolvedor",
+                    "role": 1,
+                    "permission_group": "5305d28e-b349-4cf0-b9e2-2e1b811b230b",
+                    "entity": "18e7bdee-16c2-4b88-b72c-3b4486fb8367"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      },
+    "/account/{id}": {
+      "get": {
+        "summary": "Listagem de conta por ID",
+        "description": "Essa rota é responsavel por listar a conta por Id.",
+        "tags": ["Account"],
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da conta da busca.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Account"],
+        "summary": "Atualizando uma conta",
+        "description": "Essa rota é responsavel pela atualizacação de um conta.",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da conta que vai ser atualizada",
+            "required": true
+          }
+        ],
+        "responses": { 
+          "403": {
+            "description": "Forbidden"
+          },
+          "default": {
+            "description": "Conta Atualizada com sucesso"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Dados da conta existente que vão ser atualizados",
+          "content": {
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              },
+              "examples": {
+                "company": {
+                  "value": {
+                    "name": "Gustavo Noronha",
+                    "documenty": "11111827958",
+                    "email": "gustavo.noronha@ton.com.br",
+                    "password": "@ton123456",
+                    "passwordConfirmation": "@ton123456",
+                    "phone": "4891803578",
+                    "about": "Desenvolvedor",
+                    "role": 1,
+                    "permission_group": "5305d28e-b349-4cf0-b9e2-2e1b811b230b",
+                    "entity": "18e7bdee-16c2-4b88-b72c-3b4486fb8367"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Account"],
+        "summary": "Exclusão de uma conta",
+        "security": [{"bearerAuth": []}],
+        "description": "Essa rota é responsavel por excluir uma conta.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id da conta que vai ser excluida",
+            "required": true
+          }
+        ],
+        "responses": { 
+          "403": {
+            "description": "Forbidden"
+          },
+          "204": {
+            "description": "Conta excluida com sucesso"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Account": {
+        "name": {
+          "type": "string"
+        },
+        "documenty": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "passwordConfirmation": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "about": {
+          "type": "string"
+        },
+        "role": {
+          "type": "number"
+        },
+        "permission_group": {
+          "type": "string"
+        },
+        "entity": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }}
+    }
+  }
+}
