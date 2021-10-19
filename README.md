@@ -19,7 +19,9 @@ O é mostrar uma API com uma arquitetura desacoplada, utilizando TDD como metodo
 9. [Rotas de Permissionamento para a segurança] /permission-group
 
 
-> ## Ponderações
+> ## Ponderações Importantes
+ * Visando a segurança e um sistema resiliente foi implementado autenticação e permissionamento
+ * Para agilidade e melhor aproveitamento o account entity conta com um filter e um group, capaz de filtrar e ordenar os dados vindos do banco de dados.
  * A implementação da aws ficaria na camada de infra, comprovando o quanto é eficiente uma arquitetura desacoplada, as funções serverless do lambda ficariam no repository da camada.
  * Seria interessante rodar um workflow do github para a pipeline de deploy da aws
 
