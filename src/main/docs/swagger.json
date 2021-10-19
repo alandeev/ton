@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API TON",
-    "description": "Essa API tem como objetivo a manipulação dos dados do sistema de visão de acessos do site do TON. Lembrando que o login deve ser feito antes para ser feito o teste pelo Swagger. Para logar pode ser usando Postaman, Insomnia ou qualquer outra ferramenta que teste api rest, depois do login feito é só colocar o token para testar as rotas",
+    "description": "Essa API tem como objetivo a manipulação dos dados do sistema de visão de acessos do site do TON. Lembrando que o login deve ser feito antes para ser feito os testes das outras rotas pelo Swagger, depois de feito é só colocar o token para testar as rotas",
     "contact": {
       "email": "gustavonoronha0@hotmail.com.br"
     },
@@ -15,6 +15,49 @@
     }
   ],
   "paths": {
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "description": "Essa rota é responsavel pelo login de um usúario.",
+        "tags": ["Login"],
+        "requestBody": {
+          "content": {
+            "application/json":{
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              },
+              "examples": {
+                "company": {
+                  "value": {
+                    "email": "admin@email.com",
+                    "password": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "BadRequest"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Auth"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/account": {
       "post": {
         "summary": "Account",
@@ -27,7 +70,7 @@
                 "$ref": "#/components/schemas/Account"
               },
               "examples": {
-                "company": {
+                "account": {
                   "value": {
                     "name": "Gustavo Noronha",
                     "documenty": "11111827958",
@@ -67,7 +110,8 @@
             }
           }
         }
-      },
+      }
+    },
     "/account/{id}": {
       "get": {
         "summary": "Listagem de conta por ID",
@@ -187,6 +231,50 @@
           }
         }
       }
+    },
+    "/find-amount-access": {
+      "get": {
+        "summary": "Buscando a quantidade de acessos",
+        "description": "Essa rota é responsavel por buscar a quantidade de acessos no site do TON.",
+        "tags": ["Access"],
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "A quantidade de acessos no site do TON no momento é de: 1"
+          }
+        }
+      }
+    },
+    "/increment-amount-access": {
+      "get": {
+        "summary": "Incrementa a quantidade de acessos",
+        "description": "Essa rota é responsavel por incrementar a quantidade de acessos no site do TON.",
+        "tags": ["Access"],
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "BadRequest"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "200": {
+            "description": "A quantidade de acessos no site do TON acaba de ser incrementada e no momento é de: 2"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -222,6 +310,26 @@
         "entity": {
           "type": "string"
         }
+      },
+      "Login": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "Auth":{
+          "user": {
+            "name": "string",
+            "email": "string",
+            "id": "string",
+            "accountRole": {
+              "description": "string",
+              "value": "number"
+            }
+          },
+          "accessToken": "string"
       }
     },
     "securitySchemes": {
@@ -229,7 +337,7 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
-      }}
+      }
     }
   }
 }
