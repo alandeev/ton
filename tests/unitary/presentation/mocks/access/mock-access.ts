@@ -17,8 +17,12 @@ export const makeDbFindAmountAccess = (): FindAmountAccess => {
 
 export const makeDbIncrementAmountAccess = (): IncrementAmountAccess => {
   class IncrementAmountAccessStub implements IncrementAmountAccess {
-    async incrementAmount (): Promise<number> {
-      return await new Promise(resolve => resolve(1))
+    async incrementAmount (): Promise<Result> {
+      return await new Promise(resolve => resolve({
+        status: 200,
+        path: 'any_path',
+        value: 1
+      }))
     }
   }
   return new IncrementAmountAccessStub()
