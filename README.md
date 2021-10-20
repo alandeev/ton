@@ -8,15 +8,15 @@ O é mostrar uma API com uma arquitetura desacoplada, utilizando TDD como metodo
 
 > ## APIs construídas no desafio
 
-1. [Cadastro de uma Conta] /login
-2. [Login] /account
-3. [Listagem de uma conta] /account/:id
-4. [Atualização de uma conta] /account/:id
-5. [Exclusão de uma conta] /account/:id
-6. [Listagem da quantidade de acessos no site do TON] /find-amount-access
-7. [Incremento da quantidade de acessos no site do TON] /increment-amount-access
-8. [Documentação com Swagger] /api-docs 
-9. [Rotas de Permissionamento para a segurança] /permission-group
+1. [Cadastro de uma Conta] /account ( É necessário estar autenticado, para criar uma nova conta pode se logar como adminitrador, igual o exemplo da documentação do swagger )
+2. [Login] /login ( Não é necessário estar autenticado )
+3. [Listagem de uma conta] /account/:id ( É necessário estar autenticado )
+4. [Atualização de uma conta] /account/:id ( É necessário estar autenticado )
+5. [Exclusão de uma conta] /account/:id ( É necessário estar autenticado )
+6. [Listagem da quantidade de acessos no site do TON] /find-amount-access ( É necessário estar autenticado )
+7. [Incremento da quantidade de acessos no site do TON] /increment-amount-access ( É necessário estar autenticado )
+8. [Documentação com Swagger] /api-docs ( Não é necessário estar autenticado )
+9. [Rotas de Permissionamento para a segurança] /permission-group ( É necessário estar autenticado )
 
 
 > ## Ponderações Importantes
