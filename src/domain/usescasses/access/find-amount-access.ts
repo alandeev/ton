@@ -1,3 +1,5 @@
+import { Result } from 'countapi-js'
+
 export interface FindAmountAccess {
-  findAmount: () => Promise<number>
+  findAmount: () => Promise<Result>
 }
