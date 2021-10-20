@@ -1,10 +1,15 @@
 import { FindAmountAccess } from '@/domain/usescasses/access/find-amount-access'
 import { IncrementAmountAccess } from '@/domain/usescasses/access/increment-amout-access'
+import { Result } from 'countapi-js'
 
 export const makeDbFindAmountAccess = (): FindAmountAccess => {
   class FindAmountAccessStub implements FindAmountAccess {
-    async findAmount (): Promise<number> {
-      return await new Promise(resolve => resolve(1))
+    async findAmount (): Promise<Result> {
+      return await new Promise(resolve => resolve({
+        status: 200,
+        path: 'any_path',
+        value: 1
+      }))
     }
   }
   return new FindAmountAccessStub()
