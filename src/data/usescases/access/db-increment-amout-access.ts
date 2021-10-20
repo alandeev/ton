@@ -2,9 +2,9 @@ import { IncrementAmountAccess } from '@/domain/usescasses/access/increment-amou
 import countapi, { Result } from 'countapi-js'
 
 export class DbIncrementAmountAccess implements IncrementAmountAccess {
-  async incrementAmount (): Promise<number> {
+  async incrementAmount (): Promise<Result> {
     const incrementAmountAcess: Result = await countapi.hit('ton.com.br', 'visits')
 
-    return incrementAmountAcess.value
+    return incrementAmountAcess
   }
 }
