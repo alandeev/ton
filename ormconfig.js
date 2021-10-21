@@ -33,6 +33,12 @@ const prodConfig = [
     database: process.env.POSTGRES_DB_DATABASE_PROD,
     synchronize: false,
     migrationsRun: false,
+    extra: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
     entities: [
       './dist/infra/db/typeorm/modules/**/*-entity.js'
     ],
