@@ -7,6 +7,6 @@ Promise.all([
 ])
   .then(async () => {
     const app = (await import('./config/app')).default
-    app.listen(process.env.API_PORT, () => console.log(`SERVER RUNNING AT http://localhost:${process.env.API_PORT}`))
+    app.listen(process.env.API_PORT || 3000, () => console.log(`SERVER RUNNING AT http://localhost:${process.env.API_PORT}`))
   })
   .catch((err) => (console.log(err)))
