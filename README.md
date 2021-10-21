@@ -84,3 +84,20 @@ O objetivo é mostrar uma API com uma arquitetura desacoplada, utilizando TDD co
 * delete
 * update
 * Aggregation (Group e Sort)
+
+## Como executar o banco de dados
+```bash
+Instalar o Potgres
+Iniciar uma nova conexão ( Port: 5433 )
+$ create database ton
+```
+## Como executar o servidor 
+
+```bash
+git clone https://github.com/GustavoNoronha0/ton
+$ cd ton
+$ yarn 
+$ yarn typeorm migration:run
+$ yarn dev:server
+```
+
