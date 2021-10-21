@@ -6,9 +6,7 @@ Promise.all([
   createConnection()
 ])
   .then(async () => {
-    const host = '0.0.0.0'
-    const port = 3001 || 3000
     const app = (await import('./config/app')).default
-    app.listen(port, host, () => console.log(`SERVER RUNNING AT http://localhost:${process.env.API_PORT}`))
+    app.listen(process.env.API_PORT || 3000, () => console.log(`SERVER RUNNING AT http://localhost:${process.env.API_PORT}`))
   })
   .catch((err) => (console.log(err)))
