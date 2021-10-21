@@ -26,11 +26,11 @@ const prodConfig = [
   {
     name: 'default',
     type: 'postgres',
-    host: process.env.POSTGRES_DB_HOST,
-    port: process.env.POSTGRES_DB_PORT || 5433,
-    username: process.env.POSTGRES_DB_USERNAME,
-    password: process.env.POSTGRES_DB_PASSWORD,
-    database: process.env.POSTGRES_DB_DATABASE,
+    host: process.env.POSTGRES_DB_HOST_PROD,
+    port: process.env.POSTGRES_DB_PORT_PROD || 5432,
+    username: process.env.POSTGRES_DB_USERNAME_PROD,
+    password: process.env.POSTGRES_DB_PASSWORD_PROD,
+    database: process.env.POSTGRES_DB_DATABASE_PROD,
     synchronize: false,
     migrationsRun: false,
     entities: [
