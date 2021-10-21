@@ -7,7 +7,6 @@ coverage
 globalConfig.json
 yarn-error.log
 .vscode
-.env
 
 
 *.DS_Store
