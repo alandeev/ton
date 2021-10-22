@@ -16,7 +16,6 @@ O objetivo é mostrar uma API com uma arquitetura desacoplada, utilizando TDD co
 6. [Listagem da quantidade de acessos no site do TON] /find-amount-access ( É necessário estar autenticado )
 7. [Incremento da quantidade de acessos no site do TON] /increment-amount-access ( É necessário estar autenticado )
 8. [Documentação com Swagger] /api-docs ( Não é necessário estar autenticado )
-9. [Rotas de Permissionamento para a segurança] /permission-group ( É necessário estar autenticado )
 
 
 > ## Ponderações Importantes
