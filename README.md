@@ -1,6 +1,6 @@
 # **TON API**
 
-API feita para o desafio técnico do TON.
+API do TON.
 
 O objetivo é mostrar uma API com uma arquitetura desacoplada, utilizando TDD como metodologia de trabalho, Clean Architecture para a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID.
 <br /><br />
